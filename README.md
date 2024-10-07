@@ -74,15 +74,62 @@ test 2 passed! Expected: (NIL NIL 6 6 6 7 7 7 7) Obtained: (NIL NIL 6 6 6 7 7 7
 test 3 passed! Expected: (9 9 0 0 0) Obtained: (9 9 0 0 0)
 EnD
 ```
-## Лістинг функції <назва другої функції>
+## Лістинг функції <delete-duplicates>
 ```lisp
-<Лістинг реалізації другої функції>
+(defun my-delete-duplicates (lst n)
+  (if (null lst) 
+      nil
+      (let ((first (car lst))          
+            (next-rest (cdr lst)))    
+        (if (and (not (null next-rest)) (equal first (car next-rest)))
+            (let ((count (count-duplicates next-rest first 1))) 
+              (if (>= count n) 
+                  (let ((duplicates (drop-duplicates next-rest first)))
+                  (cons first (my-delete-duplicates duplicates n))) 
+                  (cons first (my-delete-duplicates next-rest n))))
+            (cons first (my-delete-duplicates next-rest n))))))
+```
+## Лістинг функції <count-duplicates>
+```lisp
+(defun count-duplicates (lst first count)
+  (if (null lst)
+      count
+      (if (equal first (car lst))
+          (count-duplicates (cdr lst) first (+ count 1))  
+          count)))
+```
+## Лістинг функції <count-duplicates>
+```lisp
+(defun drop-duplicates (lst first)
+  (if (and (not (null lst)) (equal first (car lst)))
+      (drop-duplicates (cdr lst) first)  
+      lst))
+
 ```
 ### Тестові набори
 ```lisp
-<Лістинг реалізації тестових наборів другої функції>
+(defun check-delete-duplicates (name input expected quantuity)
+  "Execute spread-values on input, compare result with expected and print comparison status"
+  (let ((result (my-delete-duplicates input quantuity)
+    (format t "~:[~a failed! Expected: ~a Obtained: ~a~;~a passed! Expected: ~a Obtained: ~a~]~%"
+            (equal result expected)
+            name expected result)))
+
+
+(defun test-delete-duplicates ()
+ (format t "Start testing spread-values function~%")
+(check-delete-duplicates "test 1" '(1 1 2 3 3 3 2 2 a a a b) '(1 1 2 3 2 2 A B) 3)
+(check-delete-duplicates "test 2" '(nil nil 6 6 nil 7 nil nil nil) '(nil 6 nil 7 nil) 2)
+(check-delete-duplicates "test 3" '(9 1 9 9 9 0 0 3 3 1 1 1 6) '(9 1 9 0 0 3 3 1 6) 3)
+                       (format t "EnD~%"))
 ```
 ### Тестування
 ```lisp
-<Виклик і результат виконання тестів другої функції>
+CL-USER> 
+(test-delete-duplicates)
+Start testing spread-values function
+test 1 passed! Expected: (1 1 2 3 2 2 A B) Obtained: (1 1 2 3 2 2 A B)
+test 2 passed! Expected: (NIL 6 NIL 7 NIL) Obtained: (NIL 6 NIL 7 NIL)
+test 3 passed! Expected: (9 1 9 0 0 3 3 1 6) Obtained: (9 1 9 0 0 3 3 1 6)
+EnD
 ```
