@@ -92,7 +92,7 @@ EnD
                   (cons first (my-delete-duplicates next-rest n))))
             (cons first (my-delete-duplicates next-rest n))))))
 ```
-## Лістинг функції count-duplicates
+### Лістинг функції count-duplicates
 ```lisp
 (defun count-duplicates (lst first count)
   (if (null lst)
@@ -102,7 +102,7 @@ EnD
           count)))
 ```
 
-## Лістинг функції count-duplicates
+### Лістинг функції count-duplicates
 ```lisp
 (defun drop-duplicates (lst first)
   (if (and (not (null lst)) (equal first (car lst)))
