@@ -38,7 +38,7 @@ CL-USER> (delete-duplicates '(1 1 2 3 3 3 2 2 a a a b) 3)
 (1 1 2 3 2 2 A B)
 ```
 
-## Лістинг функції <spread-values>
+## Лістинг функції spread-values
 ```lisp
 (defun spread-values (list previous-value)
  (if(null list) 
@@ -77,7 +77,7 @@ test 3 passed! Expected: (9 9 0 0 0) Obtained: (9 9 0 0 0)
 EnD
 ```
 
-## Лістинг функції <delete-duplicates>
+## Лістинг функції delete-duplicates
 ```lisp
 (defun my-delete-duplicates (lst n)
   (if (null lst) 
@@ -92,7 +92,7 @@ EnD
                   (cons first (my-delete-duplicates next-rest n))))
             (cons first (my-delete-duplicates next-rest n))))))
 ```
-## Лістинг функції <count-duplicates>
+## Лістинг функції count-duplicates
 ```lisp
 (defun count-duplicates (lst first count)
   (if (null lst)
@@ -102,7 +102,7 @@ EnD
           count)))
 ```
 
-## Лістинг функції <count-duplicates>
+## Лістинг функції count-duplicates
 ```lisp
 (defun drop-duplicates (lst first)
   (if (and (not (null lst)) (equal first (car lst)))
