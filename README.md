@@ -47,6 +47,7 @@ CL-USER> (delete-duplicates '(1 1 2 3 3 3 2 2 a a a b) 3)
 	(cons previous-value(spread-values (cdr list) previous-value))
  	(cons (car list) (spread-values (cdr list) (car list))))))
 ```
+
 ### Тестові набори
 ```lisp
 (defun check-spread-values (name input expected)
@@ -64,6 +65,7 @@ CL-USER> (delete-duplicates '(1 1 2 3 3 3 2 2 a a a b) 3)
 (check-spread-values "test 3" '(9 nil 0 nil 0) '(9 9 0 0 0))
                        (format t "EnD~%"))
 ```
+
 ### Тестування
 ```lisp
 CL-USER>  (test-spread-values)
@@ -74,6 +76,7 @@ test 2 passed! Expected: (NIL NIL 6 6 6 7 7 7 7) Obtained: (NIL NIL 6 6 6 7 7 7
 test 3 passed! Expected: (9 9 0 0 0) Obtained: (9 9 0 0 0)
 EnD
 ```
+
 ## Лістинг функції <delete-duplicates>
 ```lisp
 (defun my-delete-duplicates (lst n)
@@ -98,6 +101,7 @@ EnD
           (count-duplicates (cdr lst) first (+ count 1))  
           count)))
 ```
+
 ## Лістинг функції <count-duplicates>
 ```lisp
 (defun drop-duplicates (lst first)
@@ -106,6 +110,7 @@ EnD
       lst))
 
 ```
+
 ### Тестові набори
 ```lisp
 (defun check-delete-duplicates (name input expected quantuity)
@@ -123,6 +128,7 @@ EnD
 (check-delete-duplicates "test 3" '(9 1 9 9 9 0 0 3 3 1 1 1 6) '(9 1 9 0 0 3 3 1 6) 3)
                        (format t "EnD~%"))
 ```
+
 ### Тестування
 ```lisp
 CL-USER> 
