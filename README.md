@@ -38,7 +38,7 @@ CL-USER> (delete-duplicates '(1 1 2 3 3 3 2 2 a a a b) 3)
 (1 1 2 3 2 2 A B)
 ```
 
-## Лістинг функції <назва spread-values>
+## Лістинг функції <spread-values>
 ```lisp
 (defun spread-values (list previous-value)
  (if(null list) 
