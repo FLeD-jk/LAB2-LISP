@@ -100,7 +100,6 @@ EnD
       (if (eql first (car lst))
           (count-duplicates (cdr lst) first (+ count 1))  
           count)))
-
 ```
 
 ### Лістинг функції drop-duplicates
@@ -109,8 +108,6 @@ EnD
   (if (and (not (null lst)) (equal first (car lst)))
       (drop-duplicates (cdr lst) first)  
       lst))
-
-
 ```
 
 ### Тестові набори
