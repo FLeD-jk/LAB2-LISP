@@ -27,7 +27,7 @@
 1. Написати функцію spread-values , яка заміняє nil в списку на попередній не-
 nil елемент:
   ```lisp
-CL-USER> (spread-values ‘(nil 1 2 nil 3 nil nil 4 5))
+CL-USER> (spread-values '(nil 1 2 nil 3 nil nil 4 5))
 (NIL 1 2 2 3 3 3 4 5)
 ```
 2. Написати функцію delete-duplicates , яка видаляє всі послідовні дублікати тих
