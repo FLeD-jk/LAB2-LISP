@@ -39,7 +39,7 @@
 (defun count-duplicates (lst first count)
   (if (null lst)
       count
-      (if (equal first (car lst))
+      (if (eql first (car lst))
           (count-duplicates (cdr lst) first (+ count 1))  
           count)))
 
