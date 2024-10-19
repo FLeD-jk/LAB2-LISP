@@ -71,8 +71,7 @@ CL-USER> (delete-duplicates '(1 1 2 3 3 3 2 2 a a a b) 3)
 CL-USER>  (test-spread-values)
 Start testing spread-values function
 test 1 passed! Expected: (NIL 1 2 2 3 3 3 4 5) Obtained: (NIL 1 2 2 3 3 3 4 5)
-test 2 passed! Expected: (NIL NIL 6 6 6 7 7 7 7) Obtained: (NIL NIL 6 6 6 7 7 7
-                                                            7)
+test 2 passed! Expected: (NIL NIL 6 6 6 7 7 7 7) Obtained: (NIL NIL 6 6 6 7 7 7 7)
 test 3 passed! Expected: (9 9 0 0 0) Obtained: (9 9 0 0 0)
 EnD
 ```
